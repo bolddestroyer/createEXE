@@ -13,6 +13,8 @@ Process:
 
 ----------HISTORY----------
 
+V1.2 EXE removed
+
 V1.1 EXE file added
 
 V1.0 First release

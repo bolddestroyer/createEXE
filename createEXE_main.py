@@ -3,6 +3,7 @@ import py_compile
 import re
 import shutil
 import subprocess
+import time
 import tkinter
 from tkinter import messagebox
 from createEXE_modules import *
@@ -21,13 +22,15 @@ def createEXEfile(file_path):
             messagebox.showerror('Syntax Error', f'{error}.')
             return      #In case of errors, show message box and return nothing (stop the process)
 
-        cmd_new_wrk_dir = os.path.dirname(file_path) + '/exe'       #New working directory
+        cmd_new_wrk_dir = r'C:\Users\doria\Documents\Virtual Studio Code\_exe\\' + os.path.splitext(os.path.basename(file_path))[0]      #New working directory
         cmd_input_command = fr'C:\Users\doria\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\Scripts\pyinstaller.exe --onefile "{file_path}"'        #CMD input command
         exe_file_path = cmd_new_wrk_dir + '/dist/' + os.path.splitext(os.path.basename(file_path))[0] + '.exe'    #Path containing the exe file
 
         #If the new working directory exists, remove it with all its content (all old files are removed)
         if os.path.exists(cmd_new_wrk_dir):
             shutil.rmtree(cmd_new_wrk_dir)
+
+        time.sleep(1)
 
         os.makedirs(cmd_new_wrk_dir)        #Create a new working directory
         os.chdir(cmd_new_wrk_dir)       #Change the working directory

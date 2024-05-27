@@ -21,7 +21,7 @@ def open_exe_file_loc(exe_file_path):
 #Custom message box with buttons to close and open the file explorer
 def custom_messagebox(exe_file_path):
     #Top-level pop-up window
-    msg_box = tkinter.Toplevel()
+    msg_box = tkinter.Tk()
     msg_box.title('Info')
     
     #Label
